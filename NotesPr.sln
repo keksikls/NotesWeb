@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notespr.Web", "Notespr.Web\Notespr.Web.csproj", "{1CE4B4D4-5BAE-42F5-85D4-6696627B0590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notespr.Models", "Notespr.Models\Notespr.Models.csproj", "{67E5D05F-84EB-493C-872E-95533284C228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notespr.Data", "Notespr.Data\Notespr.Data.csproj", "{8E9892D0-12BC-4053-B2E8-5A0698BE5DEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CE4B4D4-5BAE-42F5-85D4-6696627B0590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE4B4D4-5BAE-42F5-85D4-6696627B0590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE4B4D4-5BAE-42F5-85D4-6696627B0590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE4B4D4-5BAE-42F5-85D4-6696627B0590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E5D05F-84EB-493C-872E-95533284C228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E5D05F-84EB-493C-872E-95533284C228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E5D05F-84EB-493C-872E-95533284C228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E5D05F-84EB-493C-872E-95533284C228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9892D0-12BC-4053-B2E8-5A0698BE5DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9892D0-12BC-4053-B2E8-5A0698BE5DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9892D0-12BC-4053-B2E8-5A0698BE5DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9892D0-12BC-4053-B2E8-5A0698BE5DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
