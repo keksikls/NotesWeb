@@ -13,7 +13,10 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
+app.AddLoggerMidleware();
+
 
 app.MapControllerRoute(
     name: "default",
