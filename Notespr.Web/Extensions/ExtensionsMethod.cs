@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Notespr.Data.AppDbContext;
+using Notespr.Web.Midleware;
 
 namespace Notespr.Web.Extensions
 {
@@ -11,6 +13,11 @@ namespace Notespr.Web.Extensions
                 opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             return builder;
+        }
+
+        public static IApplicationBuilder AddLoggerMidleware(this IApplicationBuilder app) 
+        {
+            return app.UseMiddleware<LoggingMidleware>();
         }
     }
 }
