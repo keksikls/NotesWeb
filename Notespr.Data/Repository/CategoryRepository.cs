@@ -1,4 +1,5 @@
-﻿using Notespr.Data.Repository.IRepository;
+﻿using Notespr.Data.AppDbContext;
+using Notespr.Data.Repository.IRepository;
 using Notespr.Models.Entity;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,16 @@ namespace Notespr.Data.Repository
 {
     public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
     {
-        public void update(Category obj)
+        private readonly ApplicationDbContext _context;
+
+        public CategoryRepository(ApplicationDbContext context) : base(context) 
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        void ICategoryRepository.Update(Category obj)
+        {
+            _context.Categories.Update(obj);
         }
     }
 }
