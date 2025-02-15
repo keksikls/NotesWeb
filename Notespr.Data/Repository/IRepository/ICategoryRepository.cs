@@ -9,6 +9,6 @@ namespace Notespr.Data.Repository.IRepository
 {
     public interface ICategoryRepository : IBaseRepository<Category>
     {
-        void update(Category obj);
+        void Update(Category obj);
     }
 }
