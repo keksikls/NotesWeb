@@ -11,7 +11,7 @@
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context) 
+        public async Task InvokeAsync(HttpContext context) 
         {
             //инфа о запросе
             _logger.LogInformation($"Запрос: {context.Request.Method} {context.Request.Path}");
