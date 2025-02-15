@@ -17,7 +17,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.AddLoggerMidleware();
 
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

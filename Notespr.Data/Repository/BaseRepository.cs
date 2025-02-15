@@ -1,4 +1,6 @@
-﻿using Notespr.Data.Repository.IRepository;
+﻿using Microsoft.EntityFrameworkCore;
+using Notespr.Data.AppDbContext;
+using Notespr.Data.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,62 @@ namespace Notespr.Data.Repository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
+        private readonly ApplicationDbContext _context;
+        internal DbSet<T> dbSet;
+
+        public BaseRepository(ApplicationDbContext context)
+        {
+            _context = context;
+
+            //*todo прочить/посмотреть 
+            this.dbSet = _context.Set<T>();
+        }
         public void Add(T Entity)
         {
-            throw new NotImplementedException();
+            dbSet.Add(Entity);
         }
 
         public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = dbSet;
+            query = query.Where(filter);
+
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties
+                    .Split(new char[] { ','}, StringSplitOptions.RemoveEmptyEntries)) 
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+
+            return query.FirstOrDefault();
         }
 
         public IEnumerable<T> GetAll(string? includeProperties = null)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = dbSet;
+
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+
+            return query.ToList();
         }
 
         public void Remove(T Entity)
         {
-            throw new NotImplementedException();
+            dbSet.Remove(Entity);
         }
 
         public void RemoveRange(IEnumerable<T> Entity)
         {
-            throw new NotImplementedException();
+            dbSet.RemoveRange(Entity);
         }
     }
 }
